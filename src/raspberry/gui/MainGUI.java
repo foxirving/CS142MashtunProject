@@ -30,7 +30,7 @@ public class MainGUI extends WelcomePanel{
 					MainGUI window = new MainGUI();
 					window.frame.setVisible(true);
 
-					//Initialize main window...
+					//Initialize main window not to be continued!
 					
 					/**
 					 * This is where we add the new Panel classes.
