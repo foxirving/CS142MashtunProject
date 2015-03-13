@@ -4,13 +4,17 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.LayoutManager;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.Color;
 
 public class MainGUI extends JPanel {
 
@@ -51,8 +55,9 @@ public class MainGUI extends JPanel {
 
 	/**
 	 * Create the application.
+	 * @throws IOException 
 	 */
-	public MainGUI() {
+	public MainGUI() throws IOException {
 
 		initialize();
 
@@ -87,12 +92,17 @@ public class MainGUI extends JPanel {
 		// This button bellow appears on the welcome panel
 		// When pressed it moves the user to the aboutPanel
 		JButton btnStart = new JButton("Start");
+		btnStart.setForeground(new Color(51, 0, 0));
+		btnStart.setBackground(new Color(112, 128, 144));
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				welcomePanel.setVisible(false);
 				frame.getContentPane().add(aboutPanel);
 			}
 		});
+		btnStart.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 47));
+		Border emptyBorder = BorderFactory.createEmptyBorder();
+		btnStart.setBorder(emptyBorder);
 		btnStart.setBounds(200, 310, 400, 105);
 		welcomePanel.add(btnStart);
 
@@ -101,12 +111,16 @@ public class MainGUI extends JPanel {
 
 
 		JButton btnNext = new JButton("Next");
+		btnNext.setBackground(new Color(255, 228, 196));
+		btnNext.setForeground(new Color(51, 0, 0));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aboutPanel.setVisible(false);
 				frame.getContentPane().add(setupPanel);
 			}
 		});
+		btnNext.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 47));
+		btnNext.setBorder(emptyBorder);
 		btnNext.setBounds(200, 310, 400, 105);
 		aboutPanel.add(btnNext);
 
@@ -118,6 +132,7 @@ public class MainGUI extends JPanel {
 		// This button appears on the setup panel
 		// When pressed it moves the user to the review setup Panel
 		JButton btnEnter = new JButton("Enter");
+		btnEnter.setForeground(new Color(51, 0, 0));
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setupPanel.setVisible(false);
@@ -130,7 +145,9 @@ public class MainGUI extends JPanel {
 				// }
 			}
 		});
-		btnEnter.setFont(new Font("Lucida Grande", Font.PLAIN, 36));
+		btnEnter.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 36));
+		btnEnter.setBorder(emptyBorder);
+		btnEnter.setBackground(new Color(51, 153, 0));
 		btnEnter.setBounds(667, 360, 133, 119);
 		setupPanel.add(btnEnter);
 
@@ -141,12 +158,16 @@ public class MainGUI extends JPanel {
 		// This button appears on the review setup panel
 		// When pressed it moves the user to the in process Panel
 		JButton btnStartProcess = new JButton("Start Process");
+		btnStartProcess.setForeground(new Color(51, 0, 0));
 		btnStartProcess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reviewSetupPanel.setVisible(false);
 				frame.getContentPane().add(inProcessPanel);
 			}
 		});
+		btnStartProcess.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 47));
+		btnStartProcess.setBorder(emptyBorder);
+		btnStartProcess.setBackground(new Color(51, 153, 0));
 		btnStartProcess.setBounds(400, 375, 400, 105);
 		reviewSetupPanel.add(btnStartProcess);
 
@@ -158,19 +179,21 @@ public class MainGUI extends JPanel {
 
 		// This button appears on the finished panel
 		// When pressed it takes the user back to the welcome panel
-		JButton btnTempButton = new JButton("Temporary Button");
-		btnTempButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				inProcessPanel.setVisible(false);
-				frame.getContentPane().add(finishedPanel);
-			}
-		});
-		btnTempButton.setBounds(400, 374, 400, 106);
-		inProcessPanel.add(btnTempButton);
+//		JButton btnTempButton = new JButton("Temporary Button");
+//		btnTempButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				inProcessPanel.setVisible(false);
+//				frame.getContentPane().add(finishedPanel);
+//			}
+//		});
+//		btnTempButton.setBounds(400, 374, 400, 106);
+//		inProcessPanel.add(btnTempButton);
 
 		// This button appears on the finished panel
 		// When pressed it takes the user back to the welcome panel
 		JButton btnDone = new JButton("Done");
+		btnDone.setForeground(new Color(51, 0, 0));
+		btnDone.setBackground(new Color(255, 228, 196));
 		btnDone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				finishedPanel.setVisible(false);
@@ -179,10 +202,12 @@ public class MainGUI extends JPanel {
 				 * Having trouble taking the user back to the main welcome panel
 				 */
 				//finishedPanel.setVisible(true);
-				welcomePanel = new WelcomePanel();
-				frame.getContentPane().add(welcomePanel);
+				//welcomePanel = new WelcomePanel();
+				//frame.getContentPane().add(welcomePanel);
 			}
 		});
+		btnDone.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 47));
+		btnDone.setBorder(emptyBorder);
 		btnDone.setBounds(200, 310, 400, 105);
 		finishedPanel.add(btnDone);
 

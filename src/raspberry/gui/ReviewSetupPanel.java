@@ -1,9 +1,14 @@
 package raspberry.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.border.Border;
+
 import java.awt.SystemColor;
 
 /*
@@ -28,10 +33,16 @@ public class ReviewSetupPanel extends JPanel{
 		setBackground(SystemColor.inactiveCaption);
 		setLayout(null);
 		setSize(new Dimension(800, 480));
+		setBackground(new Color(255, 248, 220));
 		
 		//Start over button, clears the variables and takes the user back to the welcome panel
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 47));
+		btnCancel.setForeground(new Color(51, 0, 0));
+		btnCancel.setBackground(new Color(153, 51, 51));
+		Border emptyBorder = BorderFactory.createEmptyBorder();
+		btnCancel.setBorder(emptyBorder);
 		btnCancel.setBounds(0, 375, 400, 105);
 		add(btnCancel);
 		
