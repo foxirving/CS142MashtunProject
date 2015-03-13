@@ -35,10 +35,10 @@ public class FinishedPanel extends JPanel{
 		
 		// done button, this button will put the user back at the welcome panel
 		
-		JButton btnDone = new JButton("Done");
-		btnDone.setBounds(200, 363, 400, 106);
-		add(btnDone);
-		
+//		JButton btnDone = new JButton("Done");
+//		btnDone.setBounds(200, 363, 400, 106);
+//		add(btnDone);
+//		
 
 	}//end FinishedPanel()
 }//end class

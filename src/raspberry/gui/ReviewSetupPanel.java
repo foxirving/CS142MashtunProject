@@ -13,6 +13,11 @@ import java.awt.SystemColor;
 
 public class ReviewSetupPanel extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ReviewSetupPanel(){
 		
 		/**
@@ -27,14 +32,14 @@ public class ReviewSetupPanel extends JPanel{
 		//Start over button, clears the variables and takes the user back to the welcome panel
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(0, 374, 400, 106);
+		btnCancel.setBounds(0, 375, 400, 105);
 		add(btnCancel);
 		
 		//Start button, begins the program
 		
-		JButton btnStartProcess = new JButton("Start Process");
-		btnStartProcess.setBounds(400, 374, 400, 106);
-		add(btnStartProcess);
+//		JButton btnStartProcess = new JButton("Start Process");
+//		btnStartProcess.setBounds(400, 374, 400, 106);
+//		add(btnStartProcess);
 		
 		
 	}//end ReviewSetupPanel()

@@ -11,13 +11,16 @@ import javax.swing.JTextField;
  */
 
 public class AboutPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	private JTextField txtAboutTheProgram;
 
 	public AboutPanel() {
 
 		// defines what size the panel is
+		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(800, 480));
 		setLayout(null);
-		setSize(new Dimension(800, 480));
 
 		// text field explaining what the program does
 		
@@ -29,9 +32,9 @@ public class AboutPanel extends JPanel {
 
 		// okay button, moves the program to the next panel
 		
-		JButton btnOkay = new JButton("Okay");
-		btnOkay.setBounds(325, 320, 150, 50);
-		add(btnOkay);
+//		JButton btnOkay = new JButton("Okay");
+//		btnOkay.setBounds(325, 320, 150, 50);
+//		add(btnOkay);
 
 	}// end aboutPanel()
 

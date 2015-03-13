@@ -5,8 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JTextArea;
+import java.awt.Font;
 
 /*
  * This is the First panel, it serves as a welcome page when the user boots up the GUI
@@ -14,36 +15,27 @@ import java.awt.event.ActionEvent;
 
 public class WelcomePanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public WelcomePanel() {
+		setBackground(new Color(255, 228, 181));
 
 		// defines what size the panel is
+		JPanel panel = new JPanel();
+		panel.setSize(new Dimension(800, 480));
 		setLayout(null);
-		setSize(new Dimension(800, 480));
-		
-		
-	/**
-	 * TEMPORARY WELCOME SIGN
-	 */
-		JTextPane txtpnWelcome = new JTextPane();
-		txtpnWelcome.setText("WELCOME");
-		txtpnWelcome.setBounds(310, 153, 180, 66);
-		add(txtpnWelcome);
 
-	//start button, moves the program to the next panel
-		
-		JButton btnStart = new JButton("Start");
-		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//NextMethod.nextPanel();
-			}
-		});
-		btnStart.setBounds(325, 320, 150, 50);
-		
-		add(btnStart);
+		//the "welcome' text
+		JTextArea txtrWelcome = new JTextArea();
+		txtrWelcome.setFont(new Font("Lucida Grande", Font.PLAIN, 36));
+		txtrWelcome.setText("Welcome");
+		txtrWelcome.setBounds(255, 101, 290, 149);
+		add(txtrWelcome);
 
-	
+		// the start button is located in the MainGUI
 
 	}// end WelcomePanel()
-
 }// end class
