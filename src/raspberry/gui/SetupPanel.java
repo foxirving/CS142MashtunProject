@@ -30,10 +30,10 @@ public class SetupPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final JLayeredPane LayeredPaneTwo = new JLayeredPane();
-	private final JLayeredPane LayeredPaneOne = new JLayeredPane();
-	private JTextField txtBoxNumber;
-	private JTextField txtBoxQuestion;
+//	private final JLayeredPane LayeredPaneTwo = new JLayeredPane();
+//	private final JLayeredPane LayeredPaneOne = new JLayeredPane();
+//	private JTextField txtBoxNumber;
+//	private JTextField txtBoxQuestion;
 	
 	String txtPass = "1337";
 
@@ -79,7 +79,7 @@ public class SetupPanel extends JPanel {
 			btnOne.setForeground(new Color(51, 0, 0));
 			btnOne.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("1");
+					//txtArea.append("1");
 				}
 			});
 			btnOne.setBackground(new Color(255, 248, 220));
@@ -94,7 +94,7 @@ public class SetupPanel extends JPanel {
 			btnTwo.setForeground(new Color(51, 0, 0));
 			btnTwo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("2");
+					//txtArea.append("2");
 				}
 			});
 			btnTwo.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -109,7 +109,7 @@ public class SetupPanel extends JPanel {
 			btnThree.setForeground(new Color(51, 0, 0));
 			btnThree.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("3");
+					//txtArea.append("3");
 				}
 			});
 			btnThree.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -126,7 +126,7 @@ public class SetupPanel extends JPanel {
 			btnFour.setBorder(emptyBorder);
 			btnFour.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("4");
+					//txtArea.append("4");
 				}
 			});
 			btnFour.setBackground(new Color(255, 228, 196));
@@ -139,7 +139,7 @@ public class SetupPanel extends JPanel {
 			btnFive.setForeground(new Color(51, 0, 0));
 			btnFive.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("5");
+					//txtArea.append("5");
 				}
 			});
 			btnFive.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -154,7 +154,7 @@ public class SetupPanel extends JPanel {
 			btnSix.setForeground(new Color(51, 0, 0));
 			btnSix.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("6");
+					//txtArea.append("6");
 				}
 			});
 			btnSix.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -169,7 +169,7 @@ public class SetupPanel extends JPanel {
 			btnSeven.setForeground(new Color(51, 0, 0));
 			btnSeven.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("7");
+					//txtArea.append("7");
 				}
 			});
 			btnSeven.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -184,7 +184,7 @@ public class SetupPanel extends JPanel {
 			btnEight.setForeground(new Color(51, 0, 0));
 			btnEight.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("8");
+					//txtArea.append("8");
 				}
 			});
 			btnEight.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -199,7 +199,7 @@ public class SetupPanel extends JPanel {
 			btnNine.setForeground(new Color(51, 0, 0));
 			btnNine.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("9");
+					//txtArea.append("9");
 				}
 			});
 			btnNine.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -214,7 +214,7 @@ public class SetupPanel extends JPanel {
 			btnZero.setForeground(new Color(51, 0, 0));
 			btnZero.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.append("0");
+					//txtArea.append("0");
 				}
 			});
 			btnZero.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 36));
@@ -230,7 +230,7 @@ public class SetupPanel extends JPanel {
 			btnClear.setBackground(new Color(153, 51, 51));
 			btnClear.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtArea.setText("");
+					//txtArea.setText("");
 				}
 			});
 			btnClear.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN, 36));

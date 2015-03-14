@@ -18,6 +18,11 @@ import javax.swing.JButton;
 
 public class FinishedPanel extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public FinishedPanel() {
 		
 		// defines what size the panel is
@@ -26,18 +31,13 @@ public class FinishedPanel extends JPanel{
 		setLayout(null);
 		setBackground(new Color(210, 180, 140));
 		
+		//Finished Image
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("src/raspberry/gui/complete.png"));
 		lblNewLabel.setBounds(175, 42, 450, 238);
 		add(lblNewLabel);
 		
-		
-		// done button, this button will put the user back at the welcome panel
-		
-//		JButton btnDone = new JButton("Done");
-//		btnDone.setBounds(200, 363, 400, 106);
-//		add(btnDone);
-//		
+		//Done button located in the MainGUI
 
 	}//end FinishedPanel()
 }//end class

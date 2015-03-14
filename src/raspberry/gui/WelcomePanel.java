@@ -31,11 +31,11 @@ public class WelcomePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public WelcomePanel() throws IOException {
-		setBackground(new Color(210, 180, 140));
 
 		// defines what size the panel is
 		JPanel panel = new JPanel();
 		panel.setSize(new Dimension(800, 480));
+		setBackground(new Color(210, 180, 140));
 		setLayout(null);
 		
 		//Welcome Image
@@ -44,6 +44,7 @@ public class WelcomePanel extends JPanel {
 		lblNewLabel.setBounds(175, 42, 450, 238);
 		add(lblNewLabel);
 		
+		//wrapping
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(153, 51, 0));
 		panel_1.setBounds(10, 50, 780, 233);
