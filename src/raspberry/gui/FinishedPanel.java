@@ -27,7 +27,7 @@ public class FinishedPanel extends JPanel{
 		setBackground(new Color(210, 180, 140));
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\amy\\eclikspe_workspace\\FinalProject\\src\\raspberry\\gui\\complete.png"));
+		lblNewLabel.setIcon(new ImageIcon("src/raspberry/gui/complete.png"));
 		lblNewLabel.setBounds(175, 42, 450, 238);
 		add(lblNewLabel);
 		

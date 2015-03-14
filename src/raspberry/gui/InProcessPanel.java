@@ -58,12 +58,12 @@ public class InProcessPanel extends JPanel{
 		add(layeredPaneTime);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\amy\\eclikspe_workspace\\FinalProject\\src\\raspberry\\gui\\barely.png"));
+		lblNewLabel.setIcon(new ImageIcon("src/raspberry/gui/barely.png"));
 		lblNewLabel.setBounds(0, 0, 1024, 238);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\amy\\eclikspe_workspace\\FinalProject\\src\\raspberry\\gui\\hops.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("src/raspberry/gui/hops.png"));
 		lblNewLabel_1.setBounds(0, 0, 1024, 238);
 		add(lblNewLabel_1);
 

@@ -40,7 +40,7 @@ public class WelcomePanel extends JPanel {
 		
 		//Welcome Image
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\amy\\eclikspe_workspace\\FinalProject\\src\\raspberry\\gui\\welcome.png"));
+		lblNewLabel.setIcon(new ImageIcon("src/raspberry/gui/welcome.png"));
 		lblNewLabel.setBounds(175, 42, 450, 238);
 		add(lblNewLabel);
 		
