@@ -1,17 +1,17 @@
 package raspberry.gui;
 import java.util.ArrayList;
 
-public class TempHist {
+public class TempHistOld {
 
-	private ArrayList<TempSample> sample = new ArrayList<>();
+	private ArrayList<TempSampleOld> sample = new ArrayList<>();
 
 	
 	public void add(String tempF, String tempC, long timeStamp) {
-		sample.add(new TempSample(tempF, tempC, timeStamp));
+		sample.add(new TempSampleOld(tempF, tempC, timeStamp));
 	}
 
 	
-	public TempSample get(int index) {
+	public TempSampleOld get(int index) {
 		return sample.get(index);
 	}
 

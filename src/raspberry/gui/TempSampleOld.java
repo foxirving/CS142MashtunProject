@@ -1,13 +1,13 @@
 package raspberry.gui;
 
-public class TempSample {
+public class TempSampleOld {
 
 	private String tempF;
 	private String tempC;
 	private long timeStamp;
 
 
-	public TempSample(String tempF, String tempC, long timeStamp) {
+	public TempSampleOld(String tempF, String tempC, long timeStamp) {
 		this.tempF = tempF;
 		this.tempC = tempC;
 		this.timeStamp = timeStamp;
