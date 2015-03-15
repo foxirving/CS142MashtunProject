@@ -34,7 +34,8 @@ public class MainGUI extends JPanel {
 	private static InProcessPanel inProcessPanel;
 	private static FinishedPanel finishedPanel;
 
-
+	private RxTxComm serial = new RxTxComm();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -60,6 +61,7 @@ public class MainGUI extends JPanel {
 	public MainGUI() throws IOException {
 
 		initialize();
+		
 
 		/**
 		 * Making of each new panel to be placed inside the frame
@@ -221,6 +223,9 @@ public class MainGUI extends JPanel {
 		frame.setBounds(800, 480, 800, 480);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+
+		serial.initialize();
 
 	}
 }
