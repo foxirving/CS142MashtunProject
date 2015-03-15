@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -27,9 +28,17 @@ public class AboutPanel extends JPanel {
 		setLayout(null);
 		setBackground(new Color(210, 180, 140));
 
+		
+		String aboutText = "<html>" + "This program is a multi-step, temperature controlled application with simple user interface capabilities."
+				+ "<br />" + "It is understood that any user operating this program has a developed understanding of brewing, and at "
+				+ "<br />" + "least a cursory knowledge of the Mash-Tun process. If this is not the case, it is strongly encouraged that "
+				+ "<br />"	+ "the user thoroughly research the process before continuing." + "</html>";
 		// text field explaining what the program does
 		txtAboutTheProgram = new JTextField();
-		txtAboutTheProgram.setText(" this");
+		JLabel info = new JLabel(aboutText);
+		//txtAboutTheProgram.setText(info);
+		
+		
 		txtAboutTheProgram.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAboutTheProgram.setBounds(175, 11, 450, 290);
 		txtAboutTheProgram.setBackground(new Color(255, 248, 220));
