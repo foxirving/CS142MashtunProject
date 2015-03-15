@@ -29,8 +29,8 @@ public class AboutPanel extends JPanel {
 
 		// text field explaining what the program does
 		txtAboutTheProgram = new JTextField();
+		txtAboutTheProgram.setText(" this");
 		txtAboutTheProgram.setHorizontalAlignment(SwingConstants.CENTER);
-		txtAboutTheProgram.setText("About the program");
 		txtAboutTheProgram.setBounds(175, 11, 450, 290);
 		txtAboutTheProgram.setBackground(new Color(255, 248, 220));
 		Border emptyBorder = BorderFactory.createEmptyBorder();
