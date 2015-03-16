@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PresentationGUI {
+public class PresentationGUI extends JPanel{
 
 	private JFrame frame;
 	private JTextField textDisplayFahrenheit;
