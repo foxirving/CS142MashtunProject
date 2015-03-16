@@ -20,7 +20,7 @@ public class MainGUI extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
-	
+
 	/**
 	 * Panel Order: 1- WelcomePanel() 2- AboutPanel() 3-SetupPanel() 4-
 	 * ReviewSetupPanel() 5- InProcessPanel() 6- FinishedPanel()
@@ -34,8 +34,8 @@ public class MainGUI extends JPanel {
 	private static InProcessPanel inProcessPanel;
 	private static FinishedPanel finishedPanel;
 
-	private RxTxComm serial = new RxTxComm();
-	
+	private RxTxComm serial = RxTxComm.getInstance();
+
 	/**
 	 * Launch the application.
 	 */
@@ -61,7 +61,7 @@ public class MainGUI extends JPanel {
 	public MainGUI() throws IOException {
 
 		initialize();
-		
+
 
 		/**
 		 * Making of each new panel to be placed inside the frame
@@ -181,15 +181,15 @@ public class MainGUI extends JPanel {
 
 		// This button appears on the finished panel
 		// When pressed it takes the user back to the welcome panel
-//		JButton btnTempButton = new JButton("Temporary Button");
-//		btnTempButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				inProcessPanel.setVisible(false);
-//				frame.getContentPane().add(finishedPanel);
-//			}
-//		});
-//		btnTempButton.setBounds(400, 374, 400, 106);
-//		inProcessPanel.add(btnTempButton);
+		//		JButton btnTempButton = new JButton("Temporary Button");
+		//		btnTempButton.addActionListener(new ActionListener() {
+		//			public void actionPerformed(ActionEvent e) {
+		//				inProcessPanel.setVisible(false);
+		//				frame.getContentPane().add(finishedPanel);
+		//			}
+		//		});
+		//		btnTempButton.setBounds(400, 374, 400, 106);
+		//		inProcessPanel.add(btnTempButton);
 
 		// This button appears on the finished panel
 		// When pressed it takes the user back to the welcome panel
@@ -199,7 +199,7 @@ public class MainGUI extends JPanel {
 		btnDone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				finishedPanel.setVisible(false);
-				
+
 				/**
 				 * Having trouble taking the user back to the main welcome panel
 				 */
@@ -223,9 +223,6 @@ public class MainGUI extends JPanel {
 		frame.setBounds(800, 480, 800, 480);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-
-		serial.initialize();
 
 	}
 }

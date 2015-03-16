@@ -18,24 +18,36 @@ import java.util.Enumeration;
 
 public class RxTxComm implements SerialPortEventListener {
 
+	private static RxTxComm instance;
+
+	private RxTxComm() {
+		initialize();
+	}
+
+	public static RxTxComm getInstance() {
+		if (instance == null) {
+			instance = new RxTxComm();
+		}
+		return instance;
+	}
+
 	int i;
 
 
 	TempHist tempHist = new TempHist();
 	Calendar cal = Calendar.getInstance();
-
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 	SerialPort serialPort;
+
+
+
 	/** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
-<<<<<<< HEAD
 		"/dev/tty.usbmodem1421", // Mac OS X
 		//   "/dev/tty.usbmodem1421", // Raspberry Pi
-=======
-		//"/dev/tty.usbmodem1411", // Mac OS X
-		//   "/dev/tty.usbmodem1411", // Raspberry Pi
->>>>>>> origin/master
 		//			"/dev/ttyUSB0", // Linux
-				"COM4", // Windows
+		//			"COM4", // Windows
 	};
 	/**
 	 * A BufferedReader which will be fed by a InputStreamReader 
@@ -113,20 +125,30 @@ public class RxTxComm implements SerialPortEventListener {
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
-				String data = "y";
-				output.write( data.getBytes() );
 
 				String inputLine= input.readLine();	// Takes the characters from the serial port and
 				String[] split = inputLine.split(" ");		// the two temperatures separated by a space.
 
+				String inputTempFarenheit = split[0];
+				double tempFarenheit = Double.parseDouble(inputTempFarenheit);
+				
+				String data;
+				if (tempFarenheit < 80) {
+					data = "y";
+				}
+				else {
+					data = "n";
+				}
+				output.write( data.getBytes() );
+
 				// This adds each temperature reading to an ArrayList with 3 fields.
-				tempHist.add(split[0], split[1], System.currentTimeMillis());
+				tempHist.add(inputTempFarenheit, split[1], System.currentTimeMillis());
 
 				// This is temporary to print the output to the console
 
-				for (i = 0; i < tempHist.getSize(); i++) {
-					System.out.println("Index " + i + ": " + tempHist.get((tempHist.getSize()-1)).toString());
-				}
+				//for (i = 0; i < tempHist.getSize(); i++) {
+				System.out.println(tempHist.getLatest());
+				//}
 
 
 
@@ -134,12 +156,11 @@ public class RxTxComm implements SerialPortEventListener {
 				System.err.println(e.toString());
 			}
 		}
-		// Ignore all the other eventTypes, but you should consider the other ones.
 	}
 
 	//public TempHist getTemp() {
-
-	//}
+	//	return tempHist;
+	//	}
 
 
 	public static void main(String[] args) throws Exception {
@@ -154,6 +175,11 @@ public class RxTxComm implements SerialPortEventListener {
 		};
 		t.start();
 		System.out.println("Started");
+	}
+
+	public TempHist getTemp() {
+
+		return tempHist;
 	}
 
 

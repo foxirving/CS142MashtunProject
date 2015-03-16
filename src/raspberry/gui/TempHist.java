@@ -66,6 +66,7 @@ public class TempHist {
 	public TempSample getLatest() {
 
 		if ( getSize() == 0 ) {
+			return null;
 		}
 
 		return (sample.get(getSize()-1));

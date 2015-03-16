@@ -1,6 +1,8 @@
 package raspberry.gui;
 
 
+import gnu.io.SerialPort;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -27,12 +29,12 @@ import javax.swing.SwingConstants;
 
 public class InProcessPanel extends JPanel {
 
-	
 
 
-	private RxTxComm serial = new RxTxComm();
-	
-	
+	// Singleton
+	private RxTxComm serial = RxTxComm.getInstance();
+
+
 	// Time left variable
 	private JTextField txtdisplaysTimeLeft;
 
@@ -232,25 +234,17 @@ public class InProcessPanel extends JPanel {
 		public void actionPerformed(ActionEvent event) {
 
 
-			txtDsiplayCurrentTemp.setText(tempHist.getLatest().getTempF());
-			//System.out.println(serial.getLatest());
-			// old stuff
-			/*
-			if ( temp != null ) {
+			TempSample nullTest = serial.getTemp().getLatest();
 
-				fahrenheit_TextField.setText(temp.getTempF() + "°F");
-				celsius_TextField.setText(temp.getTempC() + "°C");
-			}
-			else {
-				fahrenheit_TextField.setText("Not detected");
-				celsius_TextField.setText("Not detected");
+			if (nullTest != null) {
+				txtDsiplayCurrentTemp.setText(nullTest.getTempF());
 			}
 
-			 */
+
+
 		}
 	};
 	Timer timer = new Timer(2000, actListner); {
-		timer.setInitialDelay(5000);
 		timer.start();
 	}
 
