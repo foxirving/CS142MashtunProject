@@ -235,7 +235,7 @@ public class InProcessPanel extends JPanel {
 
 
 			TempSample nullTest = serial.getTemp().getLatest();
-
+			
 			if (nullTest != null) {
 				txtDsiplayCurrentTemp.setText(nullTest.getTempF());
 			}
