@@ -1,5 +1,6 @@
 package raspberry.gui;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -7,12 +8,15 @@ import java.awt.Font;
 import javax.swing.JPanel;
 
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import javax.swing.SwingConstants;
@@ -23,6 +27,12 @@ import javax.swing.SwingConstants;
 
 public class InProcessPanel extends JPanel {
 
+	
+
+
+	private RxTxComm serial = new RxTxComm();
+	
+	
 	// Time left variable
 	private JTextField txtdisplaysTimeLeft;
 
@@ -43,6 +53,8 @@ public class InProcessPanel extends JPanel {
 	private JPanel panel_5;
 	private JTextField textField_1;
 	private JTextField textField_2;
+
+
 
 	public InProcessPanel() {
 
@@ -127,7 +139,7 @@ public class InProcessPanel extends JPanel {
 		txtDsiplayStep.setText("1");
 		txtDsiplayStep.setBounds(100, 75, 200, 120);
 		txtDsiplayStep
-				.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 90));
+		.setFont(new Font("DejaVu Serif Condensed", Font.BOLD, 90));
 		txtDsiplayStep.setBorder(emptyBorder);
 		layeredPaneStepNumb.add(txtDsiplayStep);
 		txtDsiplayStep.setColumns(10);
@@ -152,7 +164,7 @@ public class InProcessPanel extends JPanel {
 		layeredPaneTemp.setBounds(400, 240, 400, 240);
 		add(layeredPaneTemp);
 
-		JTextField txtDsiplayTemp = new JTextField();
+		final JTextField txtDsiplayTemp = new JTextField();
 		txtDsiplayTemp.setText(" Temp.");
 		txtDsiplayTemp.setFont(new Font("DejaVu Serif Condensed", Font.PLAIN,
 				30));
@@ -178,7 +190,7 @@ public class InProcessPanel extends JPanel {
 		txtDsiplayCurrentTemp.setBackground(new Color(255, 228, 196));
 		txtDsiplayCurrentTemp.setFont(new Font("DejaVu Serif Condensed",
 				Font.BOLD, 90));
-		txtDsiplayCurrentTemp.setText("145");
+		//txtDsiplayCurrentTemp.setText("100");
 		txtDsiplayCurrentTemp.setColumns(10);
 		txtDsiplayCurrentTemp.setBorder(emptyBorder);
 		txtDsiplayCurrentTemp.setBounds(100, 75, 200, 120);
@@ -205,6 +217,44 @@ public class InProcessPanel extends JPanel {
 		panel_1.setBounds(0, 0, 822, 240);
 		add(panel_1);
 
+
+
+
 	}// end InProcessPanel()
+	private TempHist getItem() {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
+	// update the temperatures on event
+	ActionListener actListner = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+
+
+			txtDsiplayCurrentTemp.setText(tempHist.getLatest().getTempF());
+			//System.out.println(serial.getLatest());
+			// old stuff
+			/*
+			if ( temp != null ) {
+
+				fahrenheit_TextField.setText(temp.getTempF() + "°F");
+				celsius_TextField.setText(temp.getTempC() + "°C");
+			}
+			else {
+				fahrenheit_TextField.setText("Not detected");
+				celsius_TextField.setText("Not detected");
+			}
+
+			 */
+		}
+	};
+	Timer timer = new Timer(2000, actListner); {
+		timer.setInitialDelay(5000);
+		timer.start();
+	}
+
+
+
 
 }// end class

@@ -1,4 +1,6 @@
 package raspberry.gui;
+
+import java.awt.image.SampleModel;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -8,21 +10,25 @@ import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent; 
 import gnu.io.SerialPortEventListener; 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Enumeration;
 
 
 
 public class RxTxComm implements SerialPortEventListener {
 
+	int i;
 
-	private TempHist tempHist = new TempHist();
 
+	TempHist tempHist = new TempHist();
+	Calendar cal = Calendar.getInstance();
 
 	SerialPort serialPort;
 	/** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
-		"/dev/tty.usbmodem1411", // Mac OS X
-		//   "/dev/tty.usbmodem1411", // Raspberry Pi
+		"/dev/tty.usbmodem1421", // Mac OS X
+		//   "/dev/tty.usbmodem1421", // Raspberry Pi
 		//			"/dev/ttyUSB0", // Linux
 		//		"COM3", // Windows
 	};
@@ -42,7 +48,7 @@ public class RxTxComm implements SerialPortEventListener {
 	public void initialize() {
 		// the next line is for Raspberry Pi and 
 		// gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
-		System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/tty.usbmodem1411");
+		System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/tty.usbmodem1421");
 
 		CommPortIdentifier portId = null;
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
@@ -102,55 +108,51 @@ public class RxTxComm implements SerialPortEventListener {
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
-				//int space; // used to split the two temps into their own variables
+				String data = "y";
+				output.write( data.getBytes() );
 
-				String inputLine=input.readLine();
-				
-				String[] split = new String[1];
-				split = inputLine.split(" ");
-				for (int i = 0; i < split.length; i++) {
-					//System.out.println(split[i]);
-				}
-				
+				String inputLine= input.readLine();	// Takes the characters from the serial port and
+				String[] split = inputLine.split(" ");		// the two temperatures separated by a space.
+
+				// This adds each temperature reading to an ArrayList with 3 fields.
 				tempHist.add(split[0], split[1], System.currentTimeMillis());
-				
-				System.out.println(getLatest());
-				
 
-				// Print out the temps to standard output in to verify values
-				
+				// This is temporary to print the output to the console
 
-				} catch (Exception e) {
-					System.err.println(e.toString());
+				for (i = 0; i < tempHist.getSize(); i++) {
+					System.out.println("Index " + i + ": " + tempHist.get((tempHist.getSize()-1)).toString());
 				}
+
+
+
+			} catch (Exception e) {
+				System.err.println(e.toString());
 			}
-			// Ignore all the other eventTypes, but you should consider the other ones.
 		}
-
-
-		public TempSample getLatest() {
-
-			if (tempHist.getSize() == 0 ) {
-				return null;
-			}
-
-			return tempHist.get(tempHist.getSize()-1);
-		}
-
-
-		public static void main(String[] args) throws Exception {
-			RxTxComm main = new RxTxComm();
-			main.initialize();
-			Thread t=new Thread() {
-				public void run() {
-					//the following line will keep this app alive for 1000 seconds,
-					//waiting for events to occur and responding to them (sending the information to the ArrayList).
-					try {Thread.sleep(1000000);} catch (InterruptedException ie) {}
-				}
-			};
-			t.start();
-			System.out.println("Started");
-		}
+		// Ignore all the other eventTypes, but you should consider the other ones.
 	}
+
+	//public TempHist getTemp() {
+
+	//}
+
+
+	public static void main(String[] args) throws Exception {
+		RxTxComm main = new RxTxComm();
+		main.initialize();
+		Thread t=new Thread() {
+			public void run() {
+				//the following line will keep this app alive for 1000 seconds,
+				//waiting for events to occur and responding to them (sending the information to the ArrayList).
+				try {Thread.sleep(1000000);} catch (InterruptedException ie) {}
+			}
+		};
+		t.start();
+		System.out.println("Started");
+	}
+
+
+
+}
 
 
