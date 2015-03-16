@@ -44,9 +44,9 @@ public class RxTxComm implements SerialPortEventListener {
 
 	/** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
-		// "/dev/tty.usbmodemfd121", // Mac OS X
-		"/dev/tty.usbmodemfd121" // Fleck's Mac OS X
-		//   "/dev/tty.usbmodemfd121", // Raspberry Pi
+		// "/dev/tty.usbmodem1411", // Mac OS X
+		"/dev/tty.usbmodem1411" // Fleck's Mac OS X
+		//   "/dev/tty.usbmodem1411", // Raspberry Pi
 		//			"/dev/ttyUSB0", // Linux
 		//			"COM4", // Windows
 	};
@@ -66,7 +66,7 @@ public class RxTxComm implements SerialPortEventListener {
 	public void initialize() {
 		// the next line is for Raspberry Pi and 
 		// gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
-		System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/tty.usbmodemfd121");
+		System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/tty.usbmodem1411");
 
 		CommPortIdentifier portId = null;
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();

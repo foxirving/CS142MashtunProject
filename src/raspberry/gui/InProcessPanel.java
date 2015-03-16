@@ -233,13 +233,26 @@ public class InProcessPanel extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 
-
 			TempSample nullTest = serial.getTemp().getLatest();
 			
+			//String nullTestString = nullTest.getTempF();
+			//String[] nullTestStringArray = nullTestString.split(".");
+			//System.out.println(nullTestStringArray[0]);
+			//String[] split = inputLine.split(" ");		// the two temperatures separated by a space.
+			//String inputTempFarenheit = split[0];
+			//double tempFarenheit = Double.parseDouble(inputTempFarenheit);
 			if (nullTest != null) {
 				txtDsiplayCurrentTemp.setText(nullTest.getTempF());
+				
+				String nullyS = nullTest.getTempF();
+				if(nullyS.length() == 4)
+					txtDsiplayCurrentTemp.setText(nullyS.substring(0, 1));
+				if(nullyS.length() == 5)
+					txtDsiplayCurrentTemp.setText(nullyS.substring(0, 2));
+				if(nullyS.length() == 6)
+					txtDsiplayCurrentTemp.setText(nullyS.substring(0, 3));
+				//System.out.println(nullTest.getTempF());
 			}
-
 
 
 		}
