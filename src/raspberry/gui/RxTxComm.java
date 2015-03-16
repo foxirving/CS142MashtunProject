@@ -27,10 +27,15 @@ public class RxTxComm implements SerialPortEventListener {
 	SerialPort serialPort;
 	/** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
+<<<<<<< HEAD
 		"/dev/tty.usbmodem1421", // Mac OS X
 		//   "/dev/tty.usbmodem1421", // Raspberry Pi
+=======
+		//"/dev/tty.usbmodem1411", // Mac OS X
+		//   "/dev/tty.usbmodem1411", // Raspberry Pi
+>>>>>>> origin/master
 		//			"/dev/ttyUSB0", // Linux
-		//		"COM3", // Windows
+				"COM4", // Windows
 	};
 	/**
 	 * A BufferedReader which will be fed by a InputStreamReader 
